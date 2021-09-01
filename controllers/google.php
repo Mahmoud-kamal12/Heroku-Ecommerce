@@ -9,11 +9,11 @@ include "google-config.php";
 session_start();
 
 if (isset($_GET['code'])) {
-  echo $_GET['code'];
+  
   $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
 
   if (!isset($token['error'])) {
-    
+   echo $_GET['code'];
   $client->setAccessToken($token);
   $google_oauth = new Google_Service_Oauth2($client);
   $userData = $google_oauth->userinfo->get();
