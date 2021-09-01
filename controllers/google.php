@@ -9,7 +9,7 @@ include "google-config.php";
 session_start();
 
 if (isset($_GET['code'])) {
-
+  echo $_GET['code'];
   $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
 
   if (!isset($token['error'])) {
